@@ -1,0 +1,69 @@
+.resultItem {
+  border-top: 1px solid #655283;
+  min-height: 20px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.resultItem:first-child {
+  border-top: none;
+}
+
+.resultItem:hover {
+  transition: 200ms ease-out;
+  transform: scale(1.2);
+  box-shadow: 0 0 60px 20px #655283;
+  border: none;
+}
+
+.resultItem:first-child:hover {
+  position: relative;
+  top: 55px;
+}
+
+.movieDetail {
+  flex-grow: 1;
+  padding: 2em;
+  max-width: calc(100% - 260px);
+  height: 400px;
+  background-color: var(--main-bg);
+}
+
+.moviePoster {
+  height: 400px;
+  width: 260px;
+  object-fit: cover;
+  background-color: var(--main-font-color);
+}
+
+.movieTitle {
+  font-weight: 700;
+  font-size: 37px;
+  margin-bottom: 1.5em;
+}
+
+.movieDesc {
+  font-size: 17px;
+  overflow: auto;
+  scrollbar-width: thin; /* Scrollbar styling for Firefox */
+}
+
+/* This and the next two rule are for styling Webkit and Blink browsers scrollbars */
+.movieDesc::-webkit-scrollbar {
+  width: 8px;
+}
+
+.movieDesc::-webkit-scrollbar-track {
+  border-radius: 50px;
+  background: #655283;
+  width: 8px;
+}
+
+.movieDesc::-webkit-scrollbar-thumb {
+  border: 1px solid #655283;
+  width: 10px;
+  border-radius: 50px;
+  background: rgb(190, 190, 190);
+  background: #382f47;
+  /* box-shadow: inset 0 0 1px 0px #000000a6; */
+}

@@ -1,0 +1,28 @@
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.searchBar {
+  margin: 30px auto;
+}
+
+.searchBarFrame {
+  background-color: var(--main-bg);
+  height: 110px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.searchResults,
+.searchResultsPlaceholder {
+  margin-top: 150px;
+}
+
+.searchResultsPlaceholder {
+  text-align: center;
+  font-size: 18px;
+}
