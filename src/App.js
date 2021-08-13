@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import classes from "./App.module.css";
-import SearchBar from "./components/SearchBar";
+import FixedTopSearchBar from "./components/FixedTopSearchBar";
 import SearchResultList from "./components/SearchResultList";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
       );
       const data = await response.json();
 
-      console.log(data); // DEBUG
       setQueryResult(data);
     } catch (err) {
       console.log(err);
@@ -29,21 +27,8 @@ function App() {
 
   return (
     <>
-      <div className={classes.searchBarFrame}>
-        <SearchBar
-          searchMovie={searchMovie}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          classList={`${classes.container} ${classes.searchBar}`}
-        />
-      </div>
-      {madeNoSearch ? (
-        <div className={`${classes.container} ${classes.searchResultsPlaceholder}`}>
-          Search now to find flicks that you'll love.
-        </div>
-      ) : (
-        <SearchResultList queryResult={queryResult} classList={`${classes.container} ${classes.searchResults}`} />
-      )}
+      <FixedTopSearchBar searchMovie={searchMovie} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} />
     </>
   );
 }

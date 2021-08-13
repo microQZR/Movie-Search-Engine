@@ -1,0 +1,9 @@
+.searchResults,
+.searchResultsPlaceholder {
+  margin-top: 150px;
+}
+
+.searchResultsPlaceholder {
+  text-align: center;
+  font-size: 18px;
+}
