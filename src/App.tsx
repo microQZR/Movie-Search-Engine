@@ -1,7 +1,9 @@
-import React, { useState, FC, ReactFragment } from "react";
+import React, { useState, FC } from "react";
 
 import FixedTopSearchBar from "./components/FixedTopSearchBar";
+import Footer from "./components/Footer";
 import SearchResultList from "./components/SearchResultList";
+import classes from "./App.module.css";
 
 export type MovieJsonEntry = {
   id: number;
@@ -35,7 +37,10 @@ const App: FC = () => {
   return (
     <>
       <FixedTopSearchBar searchMovie={searchMovie} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} />
+      <div className={`flex-column space-between ${classes.contentContainer}`}>
+        <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} />
+        <Footer />
+      </div>
     </>
   );
 };
