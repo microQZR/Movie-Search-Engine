@@ -1,14 +1,21 @@
-import { useState } from "react";
+import React, { useState, FC, ReactFragment } from "react";
 
 import FixedTopSearchBar from "./components/FixedTopSearchBar";
 import SearchResultList from "./components/SearchResultList";
 
-function App() {
-  const [queryResult, setQueryResult] = useState();
+export type MovieJsonEntry = {
+  id: number;
+  title: string;
+  poster_path: string;
+  overview: string;
+};
+
+const App: FC = () => {
+  const [queryResult, setQueryResult] = useState<MovieJsonEntry[]>();
   const [searchTerm, setSearchTerm] = useState("");
   const [madeNoSearch, setMadeNoSearch] = useState(true);
 
-  async function searchMovie(e) {
+  async function searchMovie(e: React.FormEvent) {
     e.preventDefault();
     if (searchTerm === "") return;
     setMadeNoSearch(false);
@@ -19,7 +26,7 @@ function App() {
       );
       const data = await response.json();
 
-      setQueryResult(data);
+      setQueryResult(data.results);
     } catch (err) {
       console.log(err);
     }
@@ -31,6 +38,6 @@ function App() {
       <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} />
     </>
   );
-}
+};
 
 export default App;

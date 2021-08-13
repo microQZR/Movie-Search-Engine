@@ -1,6 +1,12 @@
+import { FC } from "react";
 import classes from "./SearchBar.module.css";
 
-function SearchBar(props) {
+const SearchBar: FC<{
+  searchMovie: (e: React.FormEvent) => void;
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  classList: string;
+}> = props => {
   return (
     <form onSubmit={props.searchMovie} className={`flex ${classes.searchControl} ${props.classList}`}>
       <input
@@ -13,6 +19,6 @@ function SearchBar(props) {
       <button className={classes.searchSubmit}></button>
     </form>
   );
-}
+};
 
 export default SearchBar;

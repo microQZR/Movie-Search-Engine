@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { MovieJsonEntry } from "../App";
 import classes from "./SearchResultItem.module.css";
 
-function SearchResultItem(props) {
+const SearchResultItem: FC<{ movieEntry: MovieJsonEntry }> = props => {
   return (
     <div className={`flex ${classes.resultItem}`}>
       <img
@@ -14,6 +16,6 @@ function SearchResultItem(props) {
       </div>
     </div>
   );
-}
+};
 
 export default SearchResultItem;

@@ -1,8 +1,9 @@
+import { MovieJsonEntry } from "../App";
 import SearchResultItem from "./SearchResultItem";
 import classes from "./SearchResultList.module.css";
 
-function SearchResultList(props) {
-  const queryResultMovieEntries = props.queryResult ? props.queryResult.results : [];
+function SearchResultList(props: { madeNoSearch: boolean; queryResult: MovieJsonEntry[] | undefined }) {
+  const queryResultMovieEntries = props.queryResult ? props.queryResult : [];
 
   return props.madeNoSearch ? (
     <div className={`container ${classes.searchResultsPlaceholder}`}>Search now to find flicks that you'll love.</div>

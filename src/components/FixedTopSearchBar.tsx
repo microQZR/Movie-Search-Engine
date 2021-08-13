@@ -1,7 +1,12 @@
+import { FC } from "react";
 import classes from "./FixedTopSearchBar.module.css";
 import SearchBar from "./SearchBar";
 
-function FixedTopSearchBar(props) {
+const FixedTopSearchBar: FC<{
+  searchMovie: (e: React.FormEvent) => void;
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+}> = props => {
   return (
     <div className={classes.searchBarFrame}>
       <SearchBar
@@ -12,6 +17,6 @@ function FixedTopSearchBar(props) {
       />
     </div>
   );
-}
+};
 
 export default FixedTopSearchBar;
