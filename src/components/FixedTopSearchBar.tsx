@@ -5,14 +5,14 @@ import SearchBar from "./SearchBar";
 const FixedTopSearchBar: FC<{
   searchMovie: (e: React.FormEvent) => void;
   searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }> = props => {
   return (
     <div className={classes.searchBarFrame}>
       <SearchBar
         searchMovie={props.searchMovie}
         searchTerm={props.searchTerm}
-        setSearchTerm={props.setSearchTerm}
+        onInputChange={props.onInputChange}
         classList={`container ${classes.searchBar}`}
       />
     </div>

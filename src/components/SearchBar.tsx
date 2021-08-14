@@ -4,7 +4,7 @@ import classes from "./SearchBar.module.css";
 const SearchBar: FC<{
   searchMovie: (e: React.FormEvent) => void;
   searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   classList: string;
 }> = props => {
   return (
@@ -12,7 +12,7 @@ const SearchBar: FC<{
       <input
         type="text"
         value={props.searchTerm}
-        onChange={e => props.setSearchTerm(e.target.value)}
+        onChange={props.onInputChange}
         placeholder="Search..."
         className={classes.searchInput}
       />
