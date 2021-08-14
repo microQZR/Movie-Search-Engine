@@ -1,3 +1,5 @@
+@value xl, lg, md, sm, xs from '../breakpoints.css';
+
 .searchBar {
   margin: 30px auto;
 }
@@ -9,4 +11,14 @@
   position: fixed;
   top: 0;
   z-index: 1;
+}
+
+@media xl {
+  .searchBarFrame {
+    height: 90px;
+  }
+
+  .searchBar {
+    margin: 20px auto;
+  }
 }

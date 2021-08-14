@@ -1,3 +1,5 @@
+@value xl, lg, md, sm, xs from '../breakpoints.css';
+
 .resultItem {
   border-top: 1px solid #655283;
   min-height: 20px;
@@ -21,6 +23,13 @@
   top: 55px;
 }
 
+.moviePoster {
+  height: 400px;
+  width: 260px;
+  object-fit: cover;
+  background-color: var(--main-font-color);
+}
+
 .movieDetail {
   flex-grow: 1;
   padding: 2em;
@@ -29,21 +38,17 @@
   background-color: var(--main-bg);
 }
 
-.moviePoster {
-  height: 400px;
-  width: 260px;
-  object-fit: cover;
-  background-color: var(--main-font-color);
-}
-
 .movieTitle {
   font-weight: 700;
   font-size: 37px;
   margin-bottom: 1.5em;
+  max-height: 60%;
+  overflow-y: auto;
 }
 
 .movieDesc {
   font-size: 17px;
+  max-height: 60%;
   overflow: auto;
   scrollbar-width: thin; /* Scrollbar styling for Firefox */
 }
@@ -66,4 +71,64 @@
   background: rgb(190, 190, 190);
   background: #382f47;
   /* box-shadow: inset 0 0 1px 0px #000000a6; */
+}
+
+@media xl {
+  .moviePoster {
+    height: 250px;
+    width: 160px;
+  }
+
+  .movieDetail {
+    height: 250px;
+    max-width: calc(100% - 160px);
+  }
+
+  .movieTitle {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 22px;
+    /* min-height: 30%; */
+  }
+
+  .movieDesc {
+    font-size: 15px;
+  }
+}
+
+@media lg {
+  .moviePoster {
+    height: 200px;
+    width: 130px;
+  }
+
+  .movieDetail {
+    height: 200px;
+    max-width: calc(100% - 130px);
+  }
+
+  .resultItem:hover {
+    transform: scale(1.111);
+  }
+
+  .resultItem:first-child:hover {
+    top: 30px;
+  }
+
+  .movieTitle {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+}
+
+@media xs {
+  .movieTitle {
+    font-size: 22px;
+    max-height: 100%;
+  }
+
+  .movieDesc {
+    display: none;
+  }
 }

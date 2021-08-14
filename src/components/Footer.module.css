@@ -1,3 +1,5 @@
+@value sm, xs from '../breakpoints.css';
+
 .tmdbLogo {
   width: 9em;
   margin-right: 1.5em;
@@ -5,4 +7,22 @@
 
 .footer {
   padding: 2em 0;
+}
+
+@media sm {
+  .footer > div {
+    font-size: 14px;
+  }
+}
+
+@media xs {
+  .tmdbLogo {
+    width: 9em;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
 }

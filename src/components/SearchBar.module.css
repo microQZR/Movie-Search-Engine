@@ -1,5 +1,6 @@
+@value xl, lg, md, sm, xs from '../breakpoints.css';
+
 .searchControl {
-  width: 100%;
   height: 50px;
 }
 
@@ -21,4 +22,10 @@
   background-color: #00b2ff;
   border: none;
   border-radius: 0 10px 10px 0;
+}
+
+@media xl {
+  .searchControl {
+    height: 45px;
+  }
 }
