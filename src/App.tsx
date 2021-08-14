@@ -16,16 +16,18 @@ const App: FC = () => {
   const [queryResult, setQueryResult] = useState<MovieJsonEntry[]>();
   const [searchTerm, setSearchTerm] = useState("");
   const [madeNoSearch, setMadeNoSearch] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const timeoutId = useRef<number>();
 
   async function fetchMovies(value?: string) {
     value = value ?? searchTerm;
+
     if (value === "") {
       setMadeNoSearch(true);
       return;
-    }
+    } else setMadeNoSearch(false);
 
-    setMadeNoSearch(false);
+    setIsLoading(true);
 
     try {
       const response = await fetch(
@@ -37,6 +39,8 @@ const App: FC = () => {
     } catch (err) {
       console.log(err);
     }
+
+    setIsLoading(false);
   }
 
   function searchMovie(e: React.FormEvent) {
@@ -56,7 +60,7 @@ const App: FC = () => {
     <>
       <FixedTopSearchBar searchMovie={searchMovie} searchTerm={searchTerm} onInputChange={searchBarInputOnChangeHandler} />
       <div className={`flex-column space-between ${classes.contentContainer}`}>
-        <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} />
+        <SearchResultList madeNoSearch={madeNoSearch} queryResult={queryResult} isLoading={isLoading} />
         <Footer />
       </div>
     </>

@@ -10,6 +10,14 @@
   font-size: 18px;
 }
 
+.spinnerContainer {
+  margin-top: 150px;
+}
+
+.spinner {
+  width: 50px;
+}
+
 @media xl {
   .searchResults,
   .searchResultsPlaceholder {
