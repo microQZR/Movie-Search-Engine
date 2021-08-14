@@ -44,6 +44,7 @@
   margin-bottom: 1.5em;
   max-height: 60%;
   overflow-y: auto;
+  scrollbar-width: thin; /* Scrollbar styling for Firefox */
 }
 
 .movieDesc {
@@ -54,17 +55,20 @@
 }
 
 /* This and the next two rule are for styling Webkit and Blink browsers scrollbars */
-.movieDesc::-webkit-scrollbar {
+.movieDesc::-webkit-scrollbar,
+.movieTitle::-webkit-scrollbar {
   width: 8px;
 }
 
-.movieDesc::-webkit-scrollbar-track {
+.movieDesc::-webkit-scrollbar-track,
+.movieTitle::-webkit-scrollbar-track {
   border-radius: 50px;
   background: #655283;
   width: 8px;
 }
 
-.movieDesc::-webkit-scrollbar-thumb {
+.movieDesc::-webkit-scrollbar-thumb,
+.movieTitle::-webkit-scrollbar-thumb {
   border: 1px solid #655283;
   width: 10px;
   border-radius: 50px;
@@ -88,7 +92,7 @@
     font-weight: 700;
     font-size: 30px;
     margin-bottom: 22px;
-    /* min-height: 30%; */
+    min-height: 30%;
   }
 
   .movieDesc {

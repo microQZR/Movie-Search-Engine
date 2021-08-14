@@ -18,6 +18,31 @@
   width: 50px;
 }
 
+.loadMore,
+.endOfResults {
+  margin-top: 35px;
+  cursor: pointer;
+  border: none;
+  border-radius: 1000px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--main-bg);
+  padding: 1em;
+  background-color: #01b4e4;
+}
+
+.loadMore:hover {
+  background-color: #90cea1;
+}
+
+.loadMore:active {
+  transform: scale(0.95);
+}
+
+.endOfResults {
+  cursor: default;
+}
+
 @media xl {
   .searchResults,
   .searchResultsPlaceholder {
