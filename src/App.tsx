@@ -20,12 +20,13 @@ type RawQueryResult = {
 };
 
 const App: FC = () => {
-  const [queryResult, setQueryResult] = useState<MovieJsonEntry[]>();
+  const [queryResult, setQueryResult] = useState<MovieJsonEntry[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [madeNoSearch, setMadeNoSearch] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [hasNoMoreResults, setHasNoMoreResults] = useState(true);
   const [rawQueryResult, setRawQueryResult] = useState<RawQueryResult>();
+  const [gotNetworkError, setGotNetworkError] = useState(false);
   const timeoutId = useRef<number>();
 
   async function fetchMovies(value?: string) {
@@ -36,6 +37,7 @@ const App: FC = () => {
       return;
     } else setMadeNoSearch(false);
 
+    setGotNetworkError(false);
     setIsLoading(true);
 
     try {
@@ -47,6 +49,7 @@ const App: FC = () => {
       setRawQueryResult(data);
       setQueryResult(data.results);
     } catch (err) {
+      setGotNetworkError(true);
       console.log(err);
     }
 
@@ -73,6 +76,7 @@ const App: FC = () => {
       return;
     }
 
+    setGotNetworkError(false);
     setIsLoading(true);
 
     try {
@@ -84,8 +88,13 @@ const App: FC = () => {
       const data = await response.json();
 
       setRawQueryResult(data);
-      setQueryResult(queryResult?.concat(data.results));
+
+      // Prevent duplicate entries when 1st element of new query is the same as the last element of the last query
+      if (data.results[0].id === queryResult[queryResult.length - 1]?.id) data.results.shift();
+
+      setQueryResult(queryResult.concat(data.results));
     } catch (err) {
+      setGotNetworkError(true);
       console.log(err);
     }
 
@@ -103,6 +112,7 @@ const App: FC = () => {
           isLoading={isLoading}
           hasNoMoreResults={hasNoMoreResults}
           loadMoreHandler={loadMoreHandler}
+          gotNetworkError={gotNetworkError}
         />
         <Footer />
       </div>

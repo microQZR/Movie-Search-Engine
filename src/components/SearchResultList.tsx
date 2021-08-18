@@ -10,13 +10,18 @@ const SearchResultList: FC<{
   isLoading: boolean;
   hasNoMoreResults: boolean;
   loadMoreHandler: () => void;
+  gotNetworkError: boolean;
 }> = props => {
   const loadMoreButtonRef = useRef<HTMLButtonElement>(null);
   const queryResultMovieEntries = props.queryResult ? props.queryResult : [];
 
   return (
     <>
-      {props.isLoading ? (
+      {props.gotNetworkError ? (
+        <div className={`container ${classes.searchResultsPlaceholder}`}>
+          Oops, a network error has occured while trying to fetch movies. Please try this service at a later time!
+        </div>
+      ) : props.isLoading ? (
         <div className={`container flex ${classes.spinnerContainer}`}>
           <img src={spinner} alt="loading content" className={classes.spinner} />
         </div>
@@ -31,7 +36,7 @@ const SearchResultList: FC<{
           ))}
         </div>
       )}
-      {queryResultMovieEntries.length > 0 && !props.madeNoSearch && !props.hasNoMoreResults && (
+      {queryResultMovieEntries.length > 0 && !props.gotNetworkError && !props.madeNoSearch && !props.hasNoMoreResults && (
         <button
           className={classes.loadMore}
           ref={loadMoreButtonRef}
@@ -43,7 +48,7 @@ const SearchResultList: FC<{
           Load More Results
         </button>
       )}
-      {queryResultMovieEntries.length > 0 && !props.madeNoSearch && props.hasNoMoreResults && (
+      {queryResultMovieEntries.length > 0 && !props.gotNetworkError && !props.madeNoSearch && props.hasNoMoreResults && (
         <div className={classes.endOfResults}>End of Results</div>
       )}
     </>
