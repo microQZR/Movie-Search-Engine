@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Movie Search Engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A movie search engine built using React and TypeScript.
 
-## Available Scripts
+It interfaces with a third-party API ([The Movie Database API](https://www.themoviedb.org/)) to fetch a list of recommanded movie titles based on the user's search query.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Instant Search
+- Fully Responsive
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+See a live demo of this application [here](https://tmdb-movie-search-engine.netlify.app/).
 
-### `npm test`
+## Build and Deployement
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For build and deployment instructions see file [`Create-React-App-README.md`](./Create-React-App-README.md).
 
-### `npm run build`
+## Environment Variables
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is set up to make use of two environment variables:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `REACT_APP_TMDB_API_KEY` : The token required to make queries to [The Movie DB API](https://www.themoviedb.org/).
+- `REACT_APP_PROXY_URL` (optional) : The url of the proxy service responsible for redirecting search queries. If provided, queries are directed to this url instead of TMDB.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Attributions and Notices
 
-### `npm run eject`
+"This product uses the TMDb API but is not endorsed or certified by TMDb."
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application interfaces with [The Movie Database API](https://www.themoviedb.org/). If you intend to use this application, please make sure to review TMDB's [Terms of Use](https://www.themoviedb.org/terms-of-use), [API Terms of Use](https://www.themoviedb.org/documentation/api/terms-of-use), and [Privacy Policy](https://www.themoviedb.org/privacy-policy).
