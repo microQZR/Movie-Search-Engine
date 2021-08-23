@@ -19,6 +19,10 @@ type RawQueryResult = {
   total_results: number;
 };
 
+const fetchBaseUrl = process.env.REACT_APP_PROXY_URL
+  ? process.env.REACT_APP_PROXY_URL + "?"
+  : `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&include_adult=false&`;
+
 const App: FC = () => {
   const [queryResult, setQueryResult] = useState<MovieJsonEntry[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,9 +45,7 @@ const App: FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=1&include_adult=false&query=${value}`
-      );
+      const response = await fetch(`${fetchBaseUrl}page=1&query=${value}`);
       const data = await response.json();
 
       setRawQueryResult(data);
@@ -80,11 +82,7 @@ const App: FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=${
-          rawQueryResult!.page + 1
-        }&include_adult=false&query=${searchTerm}`
-      );
+      const response = await fetch(`${fetchBaseUrl}page=${rawQueryResult!.page + 1}&query=${searchTerm}`);
       const data = await response.json();
 
       setRawQueryResult(data);
