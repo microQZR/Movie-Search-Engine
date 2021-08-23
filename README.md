@@ -2,7 +2,7 @@
 
 A movie search engine built using React and TypeScript.
 
-It interfaces with a third-party API ([The Movie Database API](https://www.themoviedb.org/)) to fetch a list of recommanded movie titles based on the user's search query.
+It interfaces with a third-party API ([The Movie Database API](https://www.themoviedb.org/)) to fetch a list of recommended movie titles based on the user's search queries.
 
 ## Features
 
