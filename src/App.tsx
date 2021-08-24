@@ -1,4 +1,4 @@
-import React, { useState, useRef, FC } from "react";
+import React, { useState, useRef, FC, useEffect } from "react";
 
 import FixedTopSearchBar from "./components/FixedTopSearchBar";
 import Footer from "./components/Footer";
@@ -32,6 +32,8 @@ const App: FC = () => {
   const [rawQueryResult, setRawQueryResult] = useState<RawQueryResult>();
   const [gotNetworkError, setGotNetworkError] = useState(false);
   const timeoutId = useRef<number>();
+
+  useEffect(() => () => window.clearTimeout(timeoutId.current), []);
 
   async function fetchMovies(value?: string) {
     value = value ?? searchTerm;
