@@ -1,13 +1,32 @@
 @value xl, lg, md, sm, xs from '../breakpoints.css';
 
-.searchResults,
-.searchResultsPlaceholder {
-  margin-top: 150px;
+.searchResults {
+  gap: 25px;
 }
 
+.searchResults,
+.endOfResults,
+.searchErrorPlaceholder,
+.searchResultsPlaceholder {
+  margin-top: 40px;
+}
+
+.endOfResults,
+.searchErrorPlaceholder,
 .searchResultsPlaceholder {
   text-align: center;
   font-size: 18px;
+  font-weight: 500;
+  padding: 0.8em 2em;
+  background: linear-gradient(90deg, #90cea1 0%, #01b4e4 100%);
+  border-radius: 100px;
+  color: #000;
+}
+
+.endOfResults,
+.searchResultsPlaceholder {
+  max-width: 90%;
+  width: auto;
 }
 
 .spinnerContainer {
@@ -18,17 +37,18 @@
   width: 50px;
 }
 
-.loadMore,
-.endOfResults {
+.loadMore {
   margin-top: 35px;
   cursor: pointer;
   border: none;
-  border-radius: 1000px;
+  border-radius: 100px;
   font-size: 15px;
   font-weight: 700;
-  color: var(--main-bg);
-  padding: 1em;
-  background-color: #01b4e4;
+  color: #fff;
+  padding: 0.8em 1.5em;
+  background: #01b4e4;
+  box-shadow: 0px 0px 15px 5px #655283;
+  line-height: var(--body-line-height);
 }
 
 .loadMore:hover {
@@ -45,14 +65,8 @@
 
 @media xl {
   .searchResults,
+  .searchErrorPlaceholder,
   .searchResultsPlaceholder {
-    margin-top: 105px;
-  }
-}
-
-@media sm {
-  .searchResults,
-  .searchResultsPlaceholder {
-    margin-top: 90px;
+    margin-top: 0px;
   }
 }

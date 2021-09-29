@@ -40,6 +40,7 @@ const App: FC = () => {
 
     if (value === "") {
       setMadeNoSearch(true);
+      setGotNetworkError(false);
       return;
     } else setMadeNoSearch(false);
 
@@ -104,6 +105,7 @@ const App: FC = () => {
 
   return (
     <>
+      <div className={classes.background} />
       <FixedTopSearchBar searchMovie={searchMovie} searchTerm={searchTerm} onInputChange={searchBarInputOnChangeHandler} />
       <div className={`flex-column space-between ${classes.contentContainer}`}>
         <SearchResultList

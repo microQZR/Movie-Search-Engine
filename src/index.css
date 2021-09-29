@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --hl-blue: #0070f3;
   --text-font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
   --body-line-height: 1.6;
   --main-bg: #120a1f;
   --main-font-color: #f8f8f2;
+  --purple-accent: #655283;
+  --dark-navy: #0d253f;
+  --blue-accent: #01b4e4;
+  --green-accent: #90cea1;
+  --light-blue-accent: #00c9ff;
 }
 
 /* GENERAL */

@@ -1,14 +1,11 @@
 @value xl, lg, md, sm, xs from '../breakpoints.css';
 
 .resultItem {
-  border-top: 1px solid #655283;
-  min-height: 20px;
-  min-width: 50px;
   text-align: center;
-}
-
-.resultItem:first-child {
-  border-top: none;
+  border: 1px solid var(--purple-accent);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .resultItem:hover {

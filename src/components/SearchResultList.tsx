@@ -18,7 +18,7 @@ const SearchResultList: FC<{
   return (
     <>
       {props.gotNetworkError ? (
-        <div className={`container ${classes.searchResultsPlaceholder}`}>
+        <div className={`container ${classes.searchErrorPlaceholder}`}>
           Oops, a network error has occured while trying to fetch movies. Please try this service at a later time!
         </div>
       ) : props.isLoading ? (
@@ -30,7 +30,7 @@ const SearchResultList: FC<{
       ) : queryResultMovieEntries.length === 0 ? (
         <div className={`container ${classes.searchResultsPlaceholder}`}>No result has been found.</div>
       ) : (
-        <div className={`container ${classes.searchResults}`}>
+        <div className={`container flex-column ${classes.searchResults}`}>
           {queryResultMovieEntries.map(movieEntry => (
             <SearchResultItem key={movieEntry.id} movieEntry={movieEntry} />
           ))}
